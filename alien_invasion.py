@@ -20,7 +20,7 @@ class AlienInvasion:
         # the game
         self.ship = Ship(self)
 
-    def run_game(self):
+    def run_game(self) -> None:
         """Start the main loop for the game."""
         while True:
             # Listens for KBM Inputs.
