@@ -23,17 +23,21 @@ class AlienInvasion:
     def run_game(self) -> None:
         """Start the main loop for the game."""
         while True:
-            # Listens for KBM Inputs.
-            for event in pygame.event.get():
-                if event.type == pygame.QUIT:
-                    sys.exit()
+            self._check_events()
+            self._update_screen()
 
-            # Update the screen's on each cycle of the loop.
-            self.screen.fill(self.settings.bg_color)
-            self.ship.blitme()
+    def _check_events(self):
+        """Respond to KBM Inputs / Events."""
+        for event in pygame.event.get():
+            if event.type == pygame.QUIT:
+                sys.exit()
 
-            # Makes the last drawn screen visible (update screen).
-            pygame.display.flip()
+    def _update_screen(self):
+        """Update images on the screen, and flip to the new screen."""
+        self.screen.fill(self.settings.bg_color)
+        self.ship.blitme()
+
+        pygame.display.flip()
 
 
 if __name__ == "__main__":
